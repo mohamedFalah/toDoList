@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="toItemType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemType" inverseName="toItem" inverseEntity="ItemType"/>
+        <relationship name="toPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="toItem" inverseEntity="Person"/>
+    </entity>
+    <entity name="ItemType" representedClassName="ItemType" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="toItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="toItemType" inverseEntity="Item"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="toItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="toPerson" inverseEntity="Item"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-159.421875" positionY="-276.8515625" width="128" height="118"/>
+        <element name="ItemType" positionX="-402.98828125" positionY="-289.484375" width="128" height="73"/>
+        <element name="Person" positionX="111.8671875" positionY="-197.2109375" width="128" height="73"/>
+    </elements>
 </model>
